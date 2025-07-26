@@ -34,12 +34,15 @@ The recommended approach is to use **Docker and Docker Compose**, which simplifi
    docker compose version
 
 3. **Clone Github Repository**
+    ```bash
    git clone https://github.com/anukool23/task-management-microservice.git
 
 4. **Navigate to folder/directory where Repository is cloned** 
+    ```bash
     cd task-management-microservice
 
 5. **From the directory of the project (where the docker-compose.yml file is located), run:** 
+    ```bash
     docker compose up --build -d
 
 This command will:
@@ -48,6 +51,7 @@ Start all containers in the background (-d)
 Automatically set up MongoDB and RabbitMQ
 
 6. **To stop the application**
+    ```bash
    docker compose down
 
 **Verifying Services**
