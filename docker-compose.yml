@@ -5,7 +5,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - mongo_data:/data.db
+      - mongo_data:/data/db
     
   user-service:
     build : ./user-service
@@ -45,6 +45,9 @@ services:
       - 3002:3002
     depends_on:
       - rabbitmq
+    environment:
+      - RABBITMQ_URI=amqp://guest:guest@rabbitmq:5672
+    restart: always
     
 
 

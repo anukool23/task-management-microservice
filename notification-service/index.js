@@ -1,10 +1,17 @@
 const amqp = require("amqplib");
+require('dotenv').config();
+const express = require('express');
+const port = process.env.PORT || 3002
 
+const app = express();
+app.use(express.json());
+
+const RABBITMQ_URI = process.env.RABBITMQ_URI
 let channel, connection;
 
 async function consumeMessage() {
     try {
-        connection = await amqp.connect("amqp://rabbitmq:5672");
+        connection = await amqp.connect(RABBITMQ_URI);
         channel = await connection.createChannel();
         await channel.assertQueue("task-queue");
         console.log("Notification service is listening to messages");
@@ -19,3 +26,12 @@ async function consumeMessage() {
 }
 
 consumeMessage();
+
+
+app.get("/", (req,res)=>{
+    res.status(200).send("User service is up and running")
+})
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});

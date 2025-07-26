@@ -53,6 +53,10 @@ app.post("/users", async (req, res) => {
     }
 });
 
+app.get("/", (req,res)=>{
+    res.status(200).send("User service is up and running")
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });

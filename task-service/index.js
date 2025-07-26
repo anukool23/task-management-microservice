@@ -88,6 +88,10 @@ app.get("/task", async(req,res)=>{
     }
 })
 
+app.get("/", (req,res)=>{
+    res.status(200).send("Task service is up and running")
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
     connectToRabbitMQ();
