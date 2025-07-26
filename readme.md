@@ -54,6 +54,7 @@ Automatically set up MongoDB and RabbitMQ
 MongoDB: Port 27017
 
 RabbitMQ Dashboard: http://localhost:15672
+
 Username: guest | Password: guest
 
 User Service: http://localhost:3000
